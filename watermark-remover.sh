@@ -1,9 +1,9 @@
 #!/bin/bash
 
-file1=$1
+file=$1
 text=$2
 
-pdftk $file1 output uncompressed.pdf uncompress
+pdftk $file output uncompressed.pdf uncompress
 sed -e "/$text/g" < uncompressed.pdf > temp.pdf
 pdftk temp.pdf output fixed.pdf compress
 rm temp.pdf uncompressed.pdf
